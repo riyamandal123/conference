@@ -105,6 +105,23 @@ header .fa-bars {
   overflow: hidden;
   position: relative;
 }
+.left-logo,
+.right-logo {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;
+  z-index: 1;
+}
+
+.left-logo {
+  left: 20px;
+}
+
+.right-logo {
+  right: 20px;
+}
+
 .home .content {
   display: flex;
   align-items: center;
@@ -127,6 +144,9 @@ header .fa-bars {
   color: #eee;
   padding: 1rem 25rem;
   text-transform: lowercase;
+}
+.name {
+  text-transform: capitalize;
 }
 .home .content button {
   height: 4rem;
@@ -198,28 +218,41 @@ header .fa-bars {
   border-radius: 50%;
   z-index: -1;
 }
-.about .row, .partners .row {
+.speakers {
+  background: #f9f9f9;
+}
+.speakers .heading {
+  color: var(--voilet);
+}
+.about .row, .partners .row, .speakers .row {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.about .row .image img, .partners .row .image img {
+.about .row .image img, .partners .row .image img, .speakers .row .image img{
   height: 70vh;
   width: 50vw;
 }
-.about .row .content, .partners .row .content {
+.about .row .content, .partners .row .content, .speakers .row .content {
   padding-left: 5rem;
 }
-.about .row .content h3 {
+.about .row .content h3{
   font-size: 3rem;
   color: var(--pink);
 }
-.partners .row .content h3 {
+.partners .row .content h3{
   font-size: 3rem;
   color: var(--pink);
   text-transform: capitalize;
 
 }
+.speakers .row .content h3 {
+  font-size: 3rem;
+  color: var(--voilet);
+  text-transform: capitalize;
+
+}
+
 .about .row .content p, .partners .row .content p {
   font-size: 1.6rem;
   color: #999;
@@ -329,18 +362,22 @@ header .fa-bars {
   padding: 1rem 0;
   text-transform: lowercase;
 }
-.foreign-committee {
+.foreign-committee{
   background: #f9f9f9;
 }
-.foreign-committee .box-container {
+.international-committee {
+  background: #fff;
+}
+.foreign-committee .box-container, .international-committee .box-container {
   width: 85%;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   padding-top: 4rem;
   flex-wrap: wrap;
   padding: 4rem 0;
 }
-.foreign-committee .box-container .box {
+.foreign-committee .box-container .box, .international-committee .box-container .box {
   width: 28rem;
   height: 15rem;
   padding-bottom: 1rem;
@@ -348,8 +385,11 @@ header .fa-bars {
   box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
   background: #fff;
   margin: 4rem 2rem;
+  justify-content: center;
+  align-items: center;
+  
 }
-.foreign-committee .box-container .box img {
+.foreign-committee .box-container .box img, .international-committee .box-container .box img  {
   height: 8.5rem;
   width: 8.5rem;
   object-fit: cover;
@@ -359,18 +399,21 @@ header .fa-bars {
   border-left: 0.6rem solid var(--voilet);
   border-bottom: 0.6rem solid var(--voilet);
 }
-.foreign-committee .box-container .box h3 {
+.foreign-committee .box-container .box h3 , .international-committee .box-container .box h3 {
   font-size: 2rem;
   color: var(--pink);
   padding: 0 0.5rem;
 }
-.foreign-committee .box-container .box p {
+.foreign-committee .box-container .box p, .international-committee .box-container .box p{
   padding: 0 1.3rem;
   color: #999;
   font-size: 1.4rem;
 }
-.foreign-committee .box-container .box p span {
+.foreign-committee .box-container .box p span, .international-committee .box-container .box p span {
   padding: 0 1rem;
+}
+.institution {
+  display: block;
 }
 .contact {
   background: #333;
@@ -397,6 +440,20 @@ textarea {
   border: none;
   border-radius: 5rem;
   padding: 0 1rem;
+  text-transform: lowercase;
+  margin: 1rem 0;
+  color: var(--pink);
+  font-size: 1.7rem;
+  transition: 0.2s linear;
+}
+.contact .row .form-container button {
+  height: 4rem;
+  width: 85%;
+  background: #fff;
+  border: none;
+  border-radius: 5rem;
+  padding: 0 1rem;
+  text-transform: lowercase;
   margin: 1rem 0;
   color: var(--pink);
   font-size: 1.7rem;
@@ -406,6 +463,9 @@ textarea {
 textarea:focus {
   border: 0.2rem solid var(--pink);
 }
+.contact .row .form-container button:focus {
+  border: 0.2rem solid var(--pink);
+}
 .contact .row .form-container textarea {
   height: 20rem;
   border-radius: 1rem;
@@ -413,7 +473,7 @@ textarea:focus {
   padding: 1rem;
   margin-bottom: 10px;
 }
-.contact .row .form-container input[type="submit"] {
+.contact .row .form-container button {
   display: block;
   width: 17rem;
   background: var(--pink);
@@ -423,7 +483,7 @@ textarea:focus {
   transition: 0.2s;
   margin-top: 10px;
 }
-.contact .row .form-container input[type="submit"]:hover {
+.contact .row .form-container button:hover {
   background: none;
   color: var(--pink);
   border: 0.2rem solid var(--pink);
@@ -451,6 +511,9 @@ textarea:focus {
   padding: 0.5rem 1rem;
   font-size: 1.5rem;
   text-transform: capitalize;
+}
+.contact-info .official-email {
+  text-transform: lowercase;
 }
 .map iframe {
   max-width: 100%;
@@ -494,6 +557,18 @@ textarea:focus {
   font-family: "Times New Roman", Times, serif;
   text-transform: lowercase;
 }
+.tick {
+  width: 20%;
+  padding-left: 30px;
+  margin-left: 10rem;
+}
+.redirect-page {
+  color: var(--pink);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+
 
 header .fa-times {
   transform: rotate(180deg);
@@ -541,14 +616,39 @@ header .fa-times {
   .home::before {
     display: none;
   }
-  .about .row , .partners .row{
+  .left-logo{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-210%);
+  width: 130px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  }
+  .right-logo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-235%);
+    padding-left: 25px;
+    padding-bottom: 15px;
+    width: 200px;
+  }
+
+  .left-logo {
+  left: 20px;
+  }
+
+  .right-logo {
+  right: 20px;
+  }
+
+  .about .row , .partners .row, .speakers .row{
     flex-flow: column-reverse;
   }
-  .about .row .image img , .partners .row .image img{
+  .about .row .image img , .partners .row .image img, .speakers .row .image img{
     height: 60vh;
     width: 90vw;
   }
-  .about .row .content h3 , .partners .row .content h3{
+  .about .row .content h3 , .partners .row .content h3, .speakers .row .content h3{
     padding: 0 2.5rem;
   }
   .about .row .content p, .partners .row .content p  {
@@ -574,5 +674,8 @@ header .fa-times {
   }
   .container {
     padding-left: 9rem;
+  }
+  .redirect-page {
+    padding: 20px;
   }
 }
